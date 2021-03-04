@@ -25,7 +25,7 @@ def provider_for_system():
 
 def provider_install_cmd():
     if provider_for_system() == "apt":
-        return "apt-get update && apt-get install -y"
+        return "sudo apt-get update && sudo apt-get install -y"
     elif provider_for_system() == "brew":
         return "brew update && brew install"
 

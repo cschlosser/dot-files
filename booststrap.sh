@@ -8,7 +8,7 @@ echo "Do you want to install the packages now? (y/N)"
 read -n1 install_now
 
 if [ "$install_now" == "y" ];then
-    sudo ${install_cmd}
+    ${install_cmd}
 else
     echo -e "\nOk. You can still do this later by calling:"
     echo "$install_cmd"

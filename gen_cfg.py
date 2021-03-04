@@ -53,7 +53,7 @@ echo "Configuring {{ package.name }}..."
 {% for cfg in package.configs %}
 mkdir -vp $(dirname {{ cfg.dst }})
 
-if [[ -f {{ cfg.dst }} ]]; then
+if [[ -L {{ cfg.dst }} || -e {{ cfg.dst }} ]]; then
   backup_name={{ cfg.dst }}_backup_{{ package.time }}
   echo "{{ cfg.dst }} already exists. Creating backup: $backup_name"
   mv -v {{ cfg.dst }} "$backup_name"

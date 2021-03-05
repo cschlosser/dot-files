@@ -18,8 +18,10 @@ dot_file_path = os.path.join(script_dir, "dot.json")
 cfg_file = tempfile.mkstemp()[1]
 
 packages = []
+supported_dot_version = 1               
 with open(dot_file_path) as json_config:
     data = json.load(json_config)
+    assert supported_dot_version == data["version"], "This version of dot supports only file format '{}'. You're using fileformat version '{}'".format(supported_dot_version, data["version"])
     operating_system = platform.system()
     for package in data["packages"]:
         try:

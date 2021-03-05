@@ -1,30 +1,25 @@
 #!/bin/bash
-
+set -e
 script_dir=$(cd "$(dirname "$0")"; pwd)
 
-install_cmd=$("$script_dir"/gen_install.py | tail -n 1)
-echo "Package installation script generated"
-echo "Do you want to install the packages now? (y/N)"
-read -n1 install_now
+function run() {
+  stage=$1
 
-if [ "$install_now" == "y" ];then
-    ${install_cmd}
-else
+  cmd=$("$script_dir"/gen_"$stage".py | tail -n 1)
+
+  echo "${stage} script generated"
+  echo "Do you want to ${stage} now? (y/N)"
+  read -n1 reply
+
+  if [ "$reply" == "y" ];then
+    ${cmd}
+  else
     echo -e "\nOk. You can still do this later by calling:"
-    echo "$install_cmd"
-    echo "If you want to generate the file again call $script_dir/gen_install.py"
-fi
+    echo "$cmd"
+    echo "If you want to generate the file again call $script_dir/gen_$stage.py"
+  fi
 
-cfg_cmd=$("$script_dir"/gen_cfg.py | tail -n 1)
-echo "Config linking script generated"
-echo "Do you want to link the configs now? (y/N)"                              
-read -n1 configure_now                            
-                                        
-if [ "$configure_now" == "y" ];then
-    ${cfg_cmd}         
-else                                                      
-    echo -e "\nOk. You can still do this later by calling:"         
-    echo "$cfg_cmd"
-    echo "If you want to generate the file again call $script_dir/gen_cfg.py"
-fi
+}
 
+run install
+run configure

@@ -53,13 +53,18 @@ echo "Configuring {{ package.name }}..."
 {% for cfg in package.configs %}
 mkdir -vp $(dirname {{ cfg.dst }})
 
-if [[ -L {{ cfg.dst }} || -e {{ cfg.dst }} ]]; then
-  backup_name={{ cfg.dst }}_backup_{{ package.time }}
-  echo "{{ cfg.dst }} already exists. Creating backup: $backup_name"
-  mv -v {{ cfg.dst }} "$backup_name"
-fi
+# skip if cfg.src is same as existing link target: ls -l cfg.dst | awk '{print $NF}'
+if [[ {{ cfg.src }} == $(ls -l {{ cfg.dst }} | awk '{print $NF}') ]]; then
+  echo "Skipping {{ cfg.dst }} as it already points to {{ cfg.src }}"
+else
+  if [[ -L {{ cfg.dst }} || -e {{ cfg.dst }} ]]; then
+    backup_name={{ cfg.dst }}_dot_backup_{{ package.time }}
+    echo "{{ cfg.dst }} already exists. Creating backup: $backup_name"
+    mv -v {{ cfg.dst }} "$backup_name"
+  fi
 
-ln -sv {{ cfg.src }} {{ cfg.dst }}
+  ln -sv {{ cfg.src }} {{ cfg.dst }}
+fi
 {% endfor %}
 echo "...done"
 echo

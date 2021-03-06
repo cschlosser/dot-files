@@ -3,6 +3,11 @@
   "packages": [
     {
       "name": "neovim"
+      "configs": [
+        {
+	  "init.vim": "$HOME/.config/nvim/init.vim"
+	}
+      ]
     },
     {
       "name": "tmux"

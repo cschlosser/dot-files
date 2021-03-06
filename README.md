@@ -124,7 +124,8 @@ Now for the config files:
   "version": 1,
   "packages": [
     {
-      "name": "neovim"
+-      "name": "neovim"
++      "name": "neovim",
 +      "configs": [
 +        {     
 +          "init.vim": "$HOME/.config/nvim/init.vim"

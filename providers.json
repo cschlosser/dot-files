@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "providers": [
+    {
+      "apt-get": "sudo apt-get update && sudo apt-get install -y"
+    },
+    {
+      "brew": "brew update && brew install"
+    }
+  ]
+}

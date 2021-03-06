@@ -12,23 +12,22 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 
 dot_file_path = os.path.join(script_dir, "dot.json")
 
-available_providers = [
-    "apt-get",
-    "brew"
-]
+available_providers = []
+
 
 def provider_for_system():
     for provider in available_providers:
-        if which(provider) is not None:
-            return provider
-    return None
+        provider_id = provider["id"] 
+        if which(provider_id) is not None:
+            return provider_id
+    provider_names = []
+    for p in available_providers:
+        provider_names.append(p["id"])
+    raise LookupError("None of the providers {} are available on your system".format(provider_names))
 
 def provider_install_cmd():
-    if provider_for_system() == "apt":
-        return "sudo apt-get update && sudo apt-get install -y"
-    elif provider_for_system() == "brew":
-        return "brew update && brew install"
-
+    command = next(item for item in available_providers if item["id"] == provider_for_system())["command"]
+    return command
 
 def find_pkg_for_provider(package):
     try:
@@ -44,8 +43,19 @@ def find_pkg_for_provider(package):
 install_file = tempfile.mkstemp()[1]
 
 packages = []
+supported_providers_version = 1
 preinstalls = []
 supported_dot_version = 1
+
+with open(os.path.join(script_dir, "providers.json")) as json_providers:
+    data = json.load(json_providers)
+    assert supported_providers_version == data["version"], "This version of dot supports only provider file format '{}'. You're using fileformat version '{}'".format(supported_providers_version, data["version"])
+    for provider in data["providers"]:
+        prov = {}
+        prov["id"] = list(provider.keys())[0]
+        prov["command"] = provider[prov["id"]]
+        available_providers.append(prov)
+
 with open(dot_file_path) as json_config:
     data = json.load(json_config)
     assert supported_dot_version == data["version"], "This version of dot supports only file format '{}'. You're using fileformat version '{}'".format(supported_dot_version, data["version"])

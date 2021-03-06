@@ -1,5 +1,37 @@
 {
   "version": 1,
   "packages": [
+    {
+      "name": "neovim"
+    },
+    {
+      "name": "tmux"
+    },
+    {
+      "name": "herbstluft",
+      "os": "Linux",
+      "providers": [
+        {
+          "apt-get": "herbstluftwm"
+        }
+      ]
+    },
+    {
+      "name": "fish",
+      "pre_install": [
+        {
+          "apt-get": "apt-add-repository ppa:fish-shell/release-3"
+        }
+      ]
+    },
+    {
+      "name": "brew",
+      "os": "Darwin",
+      "pre_install": [
+        {
+	  "brew": "sudo xcode-select --install && mkdir $HOME/.brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/.brew && export PATH=$HOME/.brew/bin:$PATH"
+	}
+      ]
+    }
   ]
 }

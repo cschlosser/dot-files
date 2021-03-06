@@ -144,7 +144,7 @@ The config files have to be stored in your repository in a folder named like the
 ├── gen_configure.py
 ├── gen_install.py
 ├── neovim
-│   └── init.nvim
+│   └── init.vim
 ├── providers.json
 └── third_party
     └── jinja

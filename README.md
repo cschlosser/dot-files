@@ -2,6 +2,12 @@
 
 (it also can be used as a **very** basic system bootstrapper)
 
+Key features:
+
+* Install packages on your system
+* Create symlinks for all your dot files
+* Refresh your configs from your `dot.json` (see [Limitations](#limitations))
+
 ## How to
 
 ### First setup
@@ -27,10 +33,6 @@
 ### Updating your `dot.json`
 
 If you want to add new packages or add new configs to existing packages you can do so easily by editing [dot.json](dot.json) and rerunning `bootstrap.sh`. The shell scripts generated are aware of changes to some extent
-
-## Limitations
-
-* There is no way to detect removed packages/configs
 
 ## dot.json syntax
 
@@ -156,3 +158,8 @@ Let's say you store your personal dot file repository in `$HOME/dot-files`.
 For our example above it will create a link from `$HOME/.config/nvim/init.vim` to `$HOME/dot-files/neovim/init.vim` creating any directories if necessary and creating a backup if the file already exists.
 
 Folders and files can both be specified as key/value for objects in the `configs` array.
+
+## Limitations
+
+* There is no way to detect removed packages/configs
+* No `post_install` command

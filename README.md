@@ -1,6 +1,6 @@
 # dot is a simple json based dotfile manager
 
-(it also can be used as a **very** basic system bootstrapper)
+(it can also be used as a **very** basic system bootstrapper)
 
 Key features:
 
@@ -12,13 +12,13 @@ Key features:
 
 ### First setup
 
-1. Fork this repository or [use it as template](https://github.com/cschlosser/dot/generate)
+1. [Fork](https://github.com/cschlosser/dot/fork) this repository or [use it as template](https://github.com/cschlosser/dot/generate)
 
 2. Edit [dot.json](dot.json). My personal example can be found [here](https://github.com/cschlosser/dot-files/blob/master/dot.json)
 
 3. Run `bootstrap.sh` it will walk you through the process and you can rerun it all the time
 
-4. Commit your changes and push them
+4. Commit your changes and push them to your personal git repository
 
 ### Integrate changes from the main [dot](https://github.com/cschlosser/dot) framework
 
@@ -36,7 +36,7 @@ If you want to add new packages or add new configs to existing packages you can 
 
 ## dot.json syntax
 
-Everything starts with a `json` object containing a `version` and `packages` object.
+Everything starts with a `json` object containing a `version` object and a `packages` array.
 
 The `version` has to match the one of [dot](https://github.com/cschlosser/dot) you're using.
 
@@ -156,11 +156,13 @@ Each object in the `configs` array is going to be linked from the key to the val
 
 Let's say you store your personal dot file repository in `$HOME/dot-files`.
 
-For our example above it will create a link from `$HOME/.config/nvim/init.vim` to `$HOME/dot-files/neovim/init.vim` creating any directories if necessary and creating a backup if the file already exists.
+For our example above it will create a link for `$HOME/.config/nvim/init.vim` pointing to `$HOME/dot-files/neovim/init.vim`. The script will also create parent directories if necessary and a backup if the file already exists.
 
-Folders and files can both be specified as key/value for objects in the `configs` array.
+You can specify folders and files as key/value for objects in the `configs` array.
 
 ## Limitations
 
 * There is no way to detect removed packages/configs
 * No `post_install` command
+* No `pre/post_configure` commands
+

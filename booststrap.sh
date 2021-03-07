@@ -20,6 +20,11 @@ function run() {
   fi
 
 }
-
-run install
-run configure
+if [ "$#" -ne 0 ];then
+  echo "Called with parameter. Running $1 script"
+  run "$1"
+else
+  echo "Running default configuration"
+  run install
+  run configure
+fi

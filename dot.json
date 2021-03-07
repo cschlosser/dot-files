@@ -3,7 +3,7 @@
   "packages": [
     {
       "name": "neovim",
-      "configs": [
+      "config": [
         {
 	  "init.vim": "$HOME/.config/nvim/init.vim"
 	}

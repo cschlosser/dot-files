@@ -126,7 +126,7 @@ Now for the config files:
     {
 -      "name": "neovim"
 +      "name": "neovim",
-+      "configs": [
++      "config": [
 +        {     
 +          "init.vim": "$HOME/.config/nvim/init.vim"
 +        }       
@@ -152,7 +152,7 @@ The config files have to be stored in your repository in a folder named like the
 ...
 ```
 
-Each object in the `configs` array is going to be linked from the key to the value.
+Each object in the `config` array is going to be linked from the key to the value.
 
 Let's say you store your personal dot file repository in `$HOME/dot-files`.
 

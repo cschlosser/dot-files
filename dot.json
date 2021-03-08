@@ -5,8 +5,10 @@
       "name": "neovim",
       "config": [
         {
-	  "init.vim": "$HOME/.config/nvim/init.vim"
-	}
+          "init.vim": "$HOME/.config/nvim/init.vim",
+          "lua/": "$HOME/.config/nvim/lua",
+          "coc-settings.json": "$HOME/.config/nvim/coc-settings.json"
+        }
       ]
     },
     {
@@ -34,8 +36,8 @@
       "os": "Darwin",
       "pre_install": [
         {
-	  "brew": "sudo xcode-select --install && mkdir $HOME/.brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/.brew && export PATH=$HOME/.brew/bin:$PATH"
-	}
+      "brew": "sudo xcode-select --install && mkdir $HOME/.brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/.brew && export PATH=$HOME/.brew/bin:$PATH"
+    }
       ]
     }
   ]

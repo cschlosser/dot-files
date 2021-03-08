@@ -34,6 +34,16 @@
         {
           "apt-get": "apt-add-repository ppa:fish-shell/release-3"
         }
+      ],
+      "config": [
+        {
+          "completions": "$HOME/.config/fish/completions",
+          "conf.d": "$HOME/.config/fish/conf.d",
+          "config.fish": "$HOME/.config/fish/config.fish",
+          "fishfile": "$HOME/.config/fish/fishfile",
+          "fish_variables": "$HOME/.config/fish/fish_variables",
+          "functions": "$HOME/.config/fish/functions"
+        }
       ]
     },
     {

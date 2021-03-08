@@ -12,7 +12,12 @@
       ]
     },
     {
-      "name": "tmux"
+      "name": "tmux",
+      "config": [
+        {
+          "tmux.conf": "$HOME/.tmux.conf"
+        }
+      ]
     },
     {
       "name": "herbstluft",

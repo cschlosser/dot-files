@@ -1,0 +1,1 @@
+/home/EU.BSHG.COM/schlosserc/.fzf/shell/key-bindings.fish

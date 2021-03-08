@@ -63,7 +63,7 @@
       "os": "Darwin",
       "config": [
         {
-          "iterm2.plist": "$HOME/.config/iterm2/com.googlecode.iterm2.plist"   Not Committed Yet
+          "iterm2.plist": "$HOME/.config/iterm2/com.googlecode.iterm2.plist"
         }
       ]
     }

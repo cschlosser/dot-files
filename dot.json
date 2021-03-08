@@ -8,6 +8,9 @@
           "init.vim": "$HOME/.config/nvim/init.vim",
           "lua/": "$HOME/.config/nvim/lua",
           "coc-settings.json": "$HOME/.config/nvim/coc-settings.json"
+        },
+        {
+          "vimrc": "$HOME/.vimrc"
         }
       ]
     },

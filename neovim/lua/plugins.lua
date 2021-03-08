@@ -10,28 +10,25 @@ return require('packer').startup(function()
   use {'wbthomason/packer.nvim', opt = true}
 
   use {
-	  'junegunn/fzf.vim',
-	  requires = {'junegunn/fzf'}
+    'junegunn/fzf.vim',
+    requires = {'junegunn/fzf'}
   }
 
-use {
+  use {
     'ycm-core/YouCompleteMe',
-   commit = '4e480a317d4858db91631c14883c5927243d4893'
-}
---  use {
---	'romgrk/barbar.nvim',
---	requires = {'kyazdani42/nvim-web-devicons'}
- -- }
-  use {
-      'pacha/vem-tabline',
-      requires = {'ryanoasis/vim-devicons'}
+    commit = '4e480a317d4858db91631c14883c5927243d4893'
   }
 
   use {
-  'glepnir/galaxyline.nvim',
+    'pacha/vem-tabline',
+    requires = {'ryanoasis/vim-devicons'}
+  }
+
+  use {
+   'glepnir/galaxyline.nvim',
     branch = 'main',
     -- your statusline
-    config = function() require'spaceline' end,
+    config = function() require'statusline' end,
     -- some optional icons
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
@@ -43,7 +40,10 @@ use {
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/completion-nvim'
   use 'jackguo380/vim-lsp-cxx-highlight'
-  use { 'neoclide/coc.nvim', branch = 'release' }
+  use {
+    'neoclide/coc.nvim',
+    branch = 'release'
+  }
 
   use 'doums/darcula'
   use 'mbbill/undotree'

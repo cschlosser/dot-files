@@ -47,8 +47,7 @@ with open(dot_file_path) as json_config:
         except KeyError:
             pass
 
-data = '''
-#!/bin/sh
+data = '''#!/bin/bash
 set -e
 {% for package in CONFIGS %}
 echo "Configuring {{ package.name }}..."

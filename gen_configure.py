@@ -49,13 +49,21 @@ with open(dot_file_path) as json_config:
 
 data = '''#!/bin/bash
 set -e
+# From https://unix.stackexchange.com/a/85069
+function relpath() {
+        python -c 'import os.path, sys;\
+  print os.path.relpath(sys.argv[1],sys.argv[2])' "$1" "${2-$PWD}"
+}
+
 {% for package in CONFIGS %}
 echo "Configuring {{ package.name }}..."
 {% for cfg in package.configs %}
 mkdir -vp $(dirname {{ cfg.dst }})
 
+source=$(relpath "{{ cfg.src }}" $(dirname "{{ cfg.dst }}"))
+
 # skip if cfg.src is same as existing link target: ls -l cfg.dst | awk '{print $NF}'
-if [[ {{ cfg.src }} == $(ls -l {{ cfg.dst }} | awk '{print $NF}') ]]; then
+if [[ "$source" == $(ls -l {{ cfg.dst }} | awk '{print $NF}') ]]; then
   echo "Skipping {{ cfg.dst }} as it already points to {{ cfg.src }}"
 else
   if [[ -L {{ cfg.dst }} || -e {{ cfg.dst }} ]]; then
@@ -64,7 +72,7 @@ else
     mv -v {{ cfg.dst }} "$backup_name"
   fi
 
-  ln -sv {{ cfg.src }} {{ cfg.dst }}
+  ln -sv "$source" {{ cfg.dst }}
 fi
 {% endfor %}
 echo "...done"

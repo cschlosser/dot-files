@@ -54,8 +54,17 @@
       "os": "Darwin",
       "pre_install": [
         {
-      "brew": "sudo xcode-select --install && mkdir $HOME/.brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/.brew && export PATH=$HOME/.brew/bin:$PATH"
-    }
+          "brew": "sudo xcode-select --install && mkdir $HOME/.brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/.brew && export PATH=$HOME/.brew/bin:$PATH"
+        }
+      ]
+    },
+    {
+      "name": "iterm2",
+      "os": "Darwin",
+      "config": [
+        {
+          "iterm2.plist": "$HOME/.config/iterm2/com.googlecode.iterm2.plist"
+        }
       ]
     }
   ]

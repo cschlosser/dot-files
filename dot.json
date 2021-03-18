@@ -25,6 +25,11 @@
     {
       "name": "herbstluft",
       "os": "Linux",
+      "pre_install": [
+        {
+          "apt-get": "curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin"
+        }
+      ],
       "providers": [
         {
           "apt-get": "herbstluftwm"
@@ -33,20 +38,6 @@
       "config": [
         {
           "autostart": "$HOME/.config/herbstluftwm/autostart"
-        }
-      ]
-    },
-    {
-      "name": "urxvt",
-      "os": "Linux",
-      "providers": [
-        {
-          "apt-get": "rxvt-unicode"
-        }
-      ],
-      "config": [
-        {
-          "config": "$HOME/.Xdefaults"
         }
       ]
     },

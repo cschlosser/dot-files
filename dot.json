@@ -29,6 +29,25 @@
         {
           "apt-get": "herbstluftwm"
         }
+      ],
+      "config": [
+        {
+          "autostart": "$HOME/.config/herbstluftwm/autostart"
+        }
+      ]
+    },
+    {
+      "name": "urxvt",
+      "os": "Linux",
+      "providers": [
+        {
+          "apt-get": "rxvt-unicode"
+        }
+      ],
+      "config": [
+        {
+          "config": "$HOME/.Xdefaults"
+        }
       ]
     },
     {

@@ -11,14 +11,14 @@ import time
 script_dir = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(0, os.path.join(script_dir, "third_party", "jinja"))
 
-from jinja2 import Template 
+from jinja2 import Template
 
 dot_file_path = os.path.join(script_dir, "dot.json")
 
 cfg_file = tempfile.mkstemp()[1]
 
 packages = []
-supported_dot_version = 1               
+supported_dot_version = 1
 with open(dot_file_path) as json_config:
     data = json.load(json_config)
     assert supported_dot_version == data["version"], "This version of dot supports only file format '{}'. You're using fileformat version '{}'".format(supported_dot_version, data["version"])
@@ -43,7 +43,6 @@ with open(dot_file_path) as json_config:
                     cfgs.append(mapping)
             pkg["configs"] = cfgs
             packages.append(pkg)
-            #packages[package["name"]] = package["config"]
         except KeyError:
             pass
 
@@ -51,7 +50,7 @@ data = '''#!/bin/bash
 set -e
 # From https://unix.stackexchange.com/a/85069
 function relpath() {
-        python -c 'import os.path, sys;\
+        python2 -c 'import os.path, sys;\
   print os.path.relpath(sys.argv[1],sys.argv[2])' "$1" "${2-$PWD}"
 }
 

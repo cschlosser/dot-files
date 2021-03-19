@@ -3,6 +3,11 @@
   "packages": [
     {
       "name": "neovim",
+      "pre_install": [
+        {
+          "apt-get": "sudo apt-get install software-properties-common && sudo add-apt-repository ppa:neovim-ppa/unstable && git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim"
+        }
+      ],
       "config": [
         {
           "init.vim": "$HOME/.config/nvim/init.vim",
@@ -45,7 +50,7 @@
       "name": "fish",
       "pre_install": [
         {
-          "apt-get": "apt-add-repository ppa:fish-shell/release-3"
+          "apt-get": "sudo apt-add-repository ppa:fish-shell/release-3"
         }
       ],
       "config": [

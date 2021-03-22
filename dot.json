@@ -42,7 +42,18 @@
       ],
       "config": [
         {
-          "autostart": "$HOME/.config/herbstluftwm/autostart"
+          "autostart": "$HOME/.config/herbstluftwm/autostart",
+          "panel.sh": "$HOME/.config/herbstluftwm/panel.sh"
+        }
+      ]
+    },
+    {
+      "name": "polybar",
+      "os": "Linux",
+      "config": [
+        {
+          "config": "$HOME/.config/polybar/config",
+          "herbstluftwm.sh": "$HOME/.config/polybar/herbstluftwm.sh"
         }
       ]
     },

@@ -44,6 +44,9 @@
         {
           "autostart": "$HOME/.config/herbstluftwm/autostart",
           "panel.sh": "$HOME/.config/herbstluftwm/panel.sh"
+        },
+        {
+          "kitty.conf": "$HOME/.config/kitty/kitty.conf"
         }
       ]
     },

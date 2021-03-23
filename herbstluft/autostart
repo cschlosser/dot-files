@@ -96,7 +96,7 @@ hc keybind $Mod-space                                                           
                , cycle_layout +1
 
 # applications
-hc keybind $Mod-d spawn dmenu_run_hlwm
+hc keybind $Mod-d spawn dmenu_run_hlwm -fn "Hack NF"
 
 # mouse
 hc mouseunbind --all
@@ -164,7 +164,9 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 # or simply:
 # hc detect_monitors
 
-top_padding=24
+hc detect_monitors
+
+top_padding=21
 
 # find the panel
 panel=$HOME/.config/herbstluftwm/panel.sh

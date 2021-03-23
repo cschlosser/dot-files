@@ -29,7 +29,7 @@ alert = #bd2c40
 
 [bar/herbstluft]
 width = 100%
-height = 24
+height = 21
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -87,6 +87,7 @@ interval = 25
 
 mount-0 = /
 mount-1 = /home
+mount-2 = /home/docker
 
 label-mounted = %{F#94B8C1}%mountpoint%%{F-}: %percentage_used%%
 format-mounted-underline = #708C93

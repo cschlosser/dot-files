@@ -4,6 +4,10 @@ local condition = require('galaxyline.condition')
 local gls = gl.section
 gl.short_line_list = {'NvimTree','vista','dbui','packer'}
 
+local statusline_colors = {
+  darcula_statusbar_bg = '#3C3F41'
+}
+
 gls.left[1] = {
   RainbowRed = {
     provider = function() return '▊ ' end,
@@ -15,9 +19,9 @@ gls.left[2] = {
     provider = function()
       -- auto change color according the vim mode
       local mode_color = {n = colors.red, i = colors.green,v=colors.blue,
-                          [''] = colors.blue,V=colors.blue,
+                          [''] = colors.blue,V=colors.blue,
                           c = colors.magenta,no = colors.red,s = colors.orange,
-                          S=colors.orange,[''] = colors.orange,
+                          S=colors.orange,[''] = colors.orange,
                           ic = colors.yellow,R = colors.violet,Rv = colors.violet,
                           cv = colors.red,ce=colors.red, r = colors.cyan,
                           rm = colors.cyan, ['r?'] = colors.cyan,
@@ -35,48 +39,44 @@ gls.left[3] = {
     highlight = {colors.fg,colors.bg}
   }
 }
-gls.left[4] ={
-  FileIcon = {
-    provider = 'FileIcon',
-    condition = condition.buffer_not_empty,
-    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
-  },
-}
 
-gls.left[5] = {
-  FileName = {
-    provider = 'FileName',
-    condition = condition.buffer_not_empty,
-    highlight = {colors.magenta,colors.bg,'bold'}
-  }
-}
-
-gls.left[6] = {
+gls.left[4] = {
   LineInfo = {
     provider = 'LineColumn',
-    separator = ' ',
+    separator = ' / ',
     separator_highlight = {'NONE',colors.bg},
     highlight = {colors.fg,colors.bg},
   },
 }
 
-gls.left[7] = {
+gls.left[5] = {
+  LineNumber = {
+    provider = function()
+        return vim.fn.line('$')
+    end,
+    separator = ' (',
+    separator_highlight = {'NONE',colors.bg},
+    highlight = {colors.fg,colors.bg}
+  }
+}
+
+gls.left[6] = {
   PerCent = {
     provider = 'LinePercent',
-    separator = ' ',
+    separator = ') ',
     separator_highlight = {'NONE',colors.bg},
     highlight = {colors.fg,colors.bg,'bold'},
   }
 }
 
-gls.left[8] = {
+gls.left[7] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
     icon = '  ',
     highlight = {colors.red,colors.bg}
   }
 }
-gls.left[9] = {
+gls.left[8] = {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
     icon = '  ',
@@ -84,7 +84,7 @@ gls.left[9] = {
   }
 }
 
-gls.left[10] = {
+gls.left[9] = {
   DiagnosticHint = {
     provider = 'DiagnosticHint',
     icon = '  ',
@@ -92,7 +92,7 @@ gls.left[10] = {
   }
 }
 
-gls.left[11] = {
+gls.left[10] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
     icon = '  ',
@@ -100,18 +100,21 @@ gls.left[11] = {
   }
 }
 
-gls.mid[1] = {
-  ShowLspClient = {
-    provider = 'GetLspClient',
-    condition = function ()
-      local tbl = {['dashboard'] = true,['']=true}
-      if tbl[vim.bo.filetype] then
-        return false
-      end
-      return true
+gls.mid[1] ={
+  FileIcon = {
+    provider = 'FileIcon',
+    condition = condition.buffer_not_empty,
+    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,statusline_colors.darcula_statusbar_bg},
+  },
+}
+
+gls.mid[2] = {
+  FilePath = {
+    provider = function()
+     return vim.fn.expand('%F') 
     end,
-    icon = ' LSP:',
-    highlight = {colors.cyan,colors.bg,'bold'}
+    condition = condition.buffer_not_empty,
+    highlight = {colors.white, statusline_colors.darcula_statusbar_bg, 'bold'}
   }
 }
 

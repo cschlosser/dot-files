@@ -30,11 +30,6 @@
     {
       "name": "herbstluft",
       "os": "Linux",
-      "pre_install": [
-        {
-          "apt-get": "curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin"
-        }
-      ],
       "providers": [
         {
           "apt-get": "herbstluftwm"
@@ -44,9 +39,25 @@
         {
           "autostart": "$HOME/.config/herbstluftwm/autostart",
           "panel.sh": "$HOME/.config/herbstluftwm/panel.sh"
-        },
+        }
+      ]
+    },
+    {
+      "name": "alacritty",
+      "os": "Linux",
+      "pre_install": [
         {
-          "kitty.conf": "$HOME/.config/kitty/kitty.conf"
+          "apt-get": "curl -L https://github.com/barnumbirr/alacritty-debian/releases/download/v0.7.2-2/alacritty_0.7.2-2_amd64_debian_buster.deb -o /tmp/alacritty-prebuilt.deb"
+        }
+      ],
+      "providers": [
+        {
+          "apt-get": "/tmp/alacritty-prebuilt.deb"
+        }
+      ],
+      "config": [
+        {
+          "alacritty.yml": "$HOME/.config/alacritty/alacritty.yml"
         }
       ]
     },

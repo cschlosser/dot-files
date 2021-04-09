@@ -1,0 +1,12 @@
+# This is Git's per-user configuration file.
+[include]
+    path = ~/.gitconfig-user
+[color]
+    ui = auto
+[merge]
+	tool = vimdiff3
+	conflictstyle = diff3
+[mergetool]
+    path = nvim
+[mergetool "vimdiff3"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'

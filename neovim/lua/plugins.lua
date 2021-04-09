@@ -48,5 +48,6 @@ return require('packer').startup(function()
   use 'doums/darcula'
   use 'mbbill/undotree'
   use 'tpope/vim-obsession'
+  use 'airblade/vim-gitgutter'
 
 end)

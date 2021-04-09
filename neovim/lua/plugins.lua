@@ -19,6 +19,8 @@ return require('packer').startup(function()
     commit = '4e480a317d4858db91631c14883c5927243d4893'
   }
 
+  use 'grailbio/bazel-compilation-database'
+
   use {
     'pacha/vem-tabline',
     requires = {'ryanoasis/vim-devicons'}

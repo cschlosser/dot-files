@@ -19,6 +19,7 @@
       "config": [
         {
           "init.vim": "$HOME/.config/nvim/init.vim",
+          "rust_analyzer.vim": "$HOME/.config/nvim/rust_analyzer.vim",
           "lua/": "$HOME/.config/nvim/lua",
           "coc-settings.json": "$HOME/.config/nvim/coc-settings.json"
         },

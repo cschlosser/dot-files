@@ -9,7 +9,7 @@ return require('packer').startup(function()
   -- Packer can manage itself as an optional plugin
   use {'wbthomason/packer.nvim', opt = true}
 
-  -- vim appearance
+  -- appearance
   use {
     'junegunn/fzf.vim',
     requires = {'junegunn/fzf'}
@@ -40,12 +40,11 @@ return require('packer').startup(function()
   -- general
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/completion-nvim'
+  use 'nvim-lua/lsp_extensions.nvim'
   use {
     'neoclide/coc.nvim',
     branch = 'release',
-    -- rls: rust
-    -- clangd: c++
-    run = ':CocInstall coc-rls coc-clangd coc-lua coc-tsserver coc-json'
+    run = ':CocInstall coc-clangd coc-lua coc-tsserver coc-json'
   }
 
   -- c++

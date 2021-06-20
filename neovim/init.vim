@@ -23,7 +23,10 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 imap <Tab> <Plug>(completion_smart_tab)
 imap <S-Tab> <Plug>(completion_smart_s_tab)
 
+let g:rustfmt_autosave = 1
+
 " https://sharksforarms.dev/posts/neovim-rust/
 syntax enable
 filetype plugin indent on
 runtime rust_analyzer.vim
+

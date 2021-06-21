@@ -51,5 +51,6 @@ return require('packer').startup(function()
   use 'mbbill/undotree'
   use 'tpope/vim-obsession'
   use 'airblade/vim-gitgutter'
+  use 'tpope/vim-surround'
 
 end)

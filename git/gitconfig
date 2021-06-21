@@ -10,3 +10,6 @@
     path = nvim
 [mergetool "vimdiff3"]
     cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[commit]
+	gpgSign = true
+

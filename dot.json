@@ -99,6 +99,20 @@
       ]
     },
     {
+      "name": "ripgrep",
+      "os": "Linux",
+      "pre_install": [
+        {
+          "apt-get": "curl -L https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb -o /tmp/ripgrep.deb"
+        }
+      ],
+      "providers": [
+        {
+          "apt-get": "/tmp/ripgrep.deb"
+        }
+      ]
+    },
+    {
       "name": "brew",
       "os": "Darwin",
       "pre_install": [

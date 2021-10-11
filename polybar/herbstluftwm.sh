@@ -14,7 +14,7 @@ print_tags() {
 			printf "%%{F#cccccc}%%{R}%%{A:herbstclient use $name:} %s %%{A} %%{R}%%{F-}" "$name"
 			;;
 		'!')
-			printf '%%{B#CC6666}%%{A:herbstclient use $name:} %s! %%{A} %%{B}' "$name"
+			printf "%%{B#CC6666}%%{A:herbstclient use $name:} %s! %%{A} %%{B}" "$name"
 			;;
 		'.')
 			printf "%%{F#707880}%%{A:herbstclient use $name:} %s %%{A}%%{F-}" "$name"

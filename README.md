@@ -6,8 +6,13 @@
 
 Maybe necessary to use `--head` version in brew of neovim.
 
-Run `git clone https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim`
+Run
+
+```shell
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
+
  to install packer.
 
  Run `:CocInstall coc-json coc-tsserver` otherwise nvim may hang while quitting.

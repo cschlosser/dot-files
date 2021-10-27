@@ -97,7 +97,7 @@ hc keybind $Mod-space                                                           
 
 # applications
 hc keybind $Mod-d spawn dmenu_run_hlwm -fn "Hack NF"
-hc keybind Mod4-l spawn xdg-screensaver lock
+hc keybind Mod4-l spawn dm-tool lock
 
 # mouse
 hc mouseunbind --all

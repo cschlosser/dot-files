@@ -75,7 +75,8 @@
       "config": [
         {
           "config": "$HOME/.config/polybar/config",
-          "herbstluftwm.sh": "$HOME/.config/polybar/herbstluftwm.sh"
+          "herbstluftwm.sh": "$HOME/.config/polybar/herbstluftwm.sh",
+          "info-hlwm-workspaces.sh": "$HOME/.config/polybar/info-hlwm-workspaces.sh"
         }
       ]
     },

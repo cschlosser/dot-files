@@ -19,6 +19,7 @@
       "config": [
         {
           "init.vim": "$HOME/.config/nvim/init.vim",
+          "rust_analyzer.vim": "$HOME/.config/nvim/rust_analyzer.vim",
           "lua/": "$HOME/.config/nvim/lua",
           "coc-settings.json": "$HOME/.config/nvim/coc-settings.json"
         },
@@ -95,6 +96,20 @@
           "fishfile": "$HOME/.config/fish/fishfile",
           "fish_variables": "$HOME/.config/fish/fish_variables",
           "functions": "$HOME/.config/fish/functions"
+        }
+      ]
+    },
+    {
+      "name": "ripgrep",
+      "os": "Linux",
+      "pre_install": [
+        {
+          "apt-get": "curl -L https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb -o /tmp/ripgrep.deb"
+        }
+      ],
+      "providers": [
+        {
+          "apt-get": "/tmp/ripgrep.deb"
         }
       ]
     },

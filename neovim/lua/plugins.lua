@@ -9,23 +9,16 @@ return require('packer').startup(function()
   -- Packer can manage itself as an optional plugin
   use {'wbthomason/packer.nvim', opt = true}
 
+  -- appearance
   use {
     'junegunn/fzf.vim',
     requires = {'junegunn/fzf'}
   }
-
-  use {
-    'ycm-core/YouCompleteMe',
-    commit = '4e480a317d4858db91631c14883c5927243d4893'
-  }
-
-  use 'grailbio/bazel-compilation-database'
-
   use {
     'pacha/vem-tabline',
     requires = {'ryanoasis/vim-devicons'}
   }
-
+  use 'doums/darcula'
   use {
    'glepnir/galaxyline.nvim',
     branch = 'main',
@@ -34,22 +27,30 @@ return require('packer').startup(function()
     -- some optional icons
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
-
   use 'glepnir/indent-guides.nvim'
+  use 'airblade/vim-gitgutter'
 
-  use 'f-person/git-blame.nvim'
-
-  use 'neovim/nvim-lspconfig'
-  use 'nvim-lua/completion-nvim'
-  use 'jackguo380/vim-lsp-cxx-highlight'
-  use {
-    'neoclide/coc.nvim',
-    branch = 'release'
-  }
-
-  use 'doums/darcula'
+  -- extensions/additional utility
   use 'mbbill/undotree'
   use 'tpope/vim-obsession'
-  use 'airblade/vim-gitgutter'
+  use 'tpope/vim-surround'
+  use 'f-person/git-blame.nvim'
+  use 'tpope/vim-surround'
+
+  -- languages
+  -- general
+  use 'neovim/nvim-lspconfig'
+  use 'nvim-lua/completion-nvim'
+  use 'nvim-lua/lsp_extensions.nvim'
+  use {
+    'neoclide/coc.nvim',
+    branch = 'release',
+    run = ':CocInstall coc-clangd coc-lua coc-tsserver coc-json'
+  }
+  -- c++
+  use 'jackguo380/vim-lsp-cxx-highlight'
+  use 'grailbio/bazel-compilation-database'
+  -- rust
+  use 'rust-lang/rust.vim'
 
 end)

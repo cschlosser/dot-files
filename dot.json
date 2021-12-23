@@ -114,6 +114,19 @@
       ]
     },
     {
+      "name": "bat",
+      "pre_install": [
+        {
+          "apt-get": "curl -L https://github.com/sharkdp/bat/releases/download/v0.18.3/bat_0.18.3_amd64.deb -o /tmp/bat.deb"
+        }
+      ],
+      "providers": [
+        {
+          "apt-get": "/tmp/bat.deb"
+        }
+      ]
+    },
+    {
       "name": "brew",
       "os": "Darwin",
       "pre_install": [
